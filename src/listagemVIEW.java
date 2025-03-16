@@ -19,6 +19,24 @@ public class listagemVIEW extends javax.swing.JFrame {
     public listagemVIEW() {
         initComponents();
         listarProdutos();
+        preencherTabela();
+    }
+    
+    private void preencherTabela(){
+        ProdutosDAO produtosDao = new ProdutosDAO();
+        ArrayList<ProdutosDTO> lista = produtosDao.listarProdutos();
+        DefaultTableModel modelo = (DefaultTableModel) listaProdutos.getModel();
+        modelo.setRowCount(0);
+        
+        for(ProdutosDTO p : lista){
+            Object[] obj = new Object[]{
+                p.getId(),
+                p.getNome(),
+                p.getValor(),
+                p.getStatus()
+            };
+           modelo.addRow(obj);
+        }
     }
 
     /**
