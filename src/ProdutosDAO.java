@@ -80,6 +80,10 @@ public class ProdutosDAO {
         }
     }
     
+    public ArrayList listarProdutosVendidos(){
+        
+    }
+    
     
     
         
